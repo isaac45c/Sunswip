@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Learning Way</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html, body, h1, h2, h3, h4, h5, h6 {
+      font-family: "Roboto", sans-serif;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding-top: 70px; /* Compense la barre de navigation */
+      padding-bottom: 70px; /* Compense la barre de navigation */
+      color: #333;
+      display: flex;
+    }
+
+    a {
+      color: blue;
+      text-decoration: none;
+    }
+
+    .tab {
+      overflow: hidden;
+      background-color: #007bff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center; /* Centre les onglets */
+    }
+    .tab2 {
+      overflow: hidden;
+      background-color: #007bff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center; /* Centre les onglets */
+    }
+
+    .tab button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 16px 20px;
+      font-size: 16px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .tab button i {
+      margin-right: 5px;
+    }
+
+    .tab button:hover {
+      background-color: #0056b3;
+    }
+
+    .tab button.active {
+      background-color: #003d99;
+    }
+
+    .tabcontent {
+      display: none;
+      padding: 20px;
+      background-color: grey;
+      border-radius: 1px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 5px;
+      flex: 1; /* Prend l'espace restant */
+      display: flex;
+    }
+
+    .tabcontent .content {
+      flex: 1; /* Prend tout l'espace restant */
+      padding: 20px;
+    }
+
+    .tabcontent .sidebar {
+      width: 200px; /* Largeur de la barre latérale */
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-right: 20px; /* Espace entre la barre latérale et le contenu */
+    }
+
+    .tabcontent p button {
+      border: none;
+      padding: 12px 24px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      font-size: 14px;
+      border-radius: 8px;
+      margin: 5px 0; /* Marges verticales entre les boutons */
+      width: 100%; /* Remplit la largeur de la barre latérale */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .tabcontent p button:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-green {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .btn-green:hover {
+      background-color: #218838;
+    }
+
+    .btn-blue {
+      background-color: #17a2b8;
+      color: white;
+    }
+
+    .btn-blue:hover {
+      background-color: #117a8b;
+    }
+
+    .btn-red {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .btn-red:hover {
+      background-color: #c82333;
+    }
+
+    /* Menu Diagram Design */
+    .menu-diagram {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .menu-item {
+      text-align: center;
+      width: 150px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-item:hover {
+      background-color: #007bff;
+      transform: scale(1.05);
+      color: white;
+    }
+
+    .menu-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .menu-item p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      max-width: 1200px;
+      margin-top: 30px;
+    }
+
+    .footer {
+      background-color: #003d99;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: ;
+      width: 100%;
+      bottom: 0;
+    }
+
+    .footer a {
+      color: #ffdd57;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive iframe */
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .menu-diagram {
+        justify-content: center;
+      }
+
+      .menu-item {
+        width: 120px;
+        margin: 10px;
+      }
+
+      .tab button {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+
+      .tabcontent .sidebar {
+        width: 100%; /* Prend toute la largeur sur mobile */
+        margin-right: 0; /* Pas d'espace entre la barre latérale et le contenu */
+      }
+
+      .tabcontent .content {
+        padding: ; /* Pas de remplissage pour le contenu sur mobile */
+        background-color: black;
+      }
+    }
+
+  </style>
+</head>
+<body onload="openCity(null, 'Menu')">
+
+<div class="container">
+  <!-- Navigation Tabs -->
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Menu')">
+      <i class="fa fa-home"></i> Menu
+    </button>
+    <button class="tablinks" onclick="openCity(event, 'Manuels')">
+      <i class="fa fa-book"></i> Manuels
+    </button>
+    <button class="tablinks" onclick="openCity(event, 'Pronote')">
+      <i class="fa fa-circle"></i> Pronote
+    </button>
+    <button class="tablinks" onclick="openCity(event, 'Cours')">
+      <i class="fa fa-language"></i> Cours
+    </button>
+  </div>
+<div>
+  <!-- Tab Contents -->
+  <div id="Menu" class="tabcontent">
+  <div class="tabcontent1">
+    <h2>Bienvenue sur Learning Way</h2>
+    <p>Grâce à Learning Way, vous bénéficiez d’un accès privilégié à une vaste sélection de manuels, de cours et de nombreuses fonctionnalités conçues pour garantir votre réussite scolaire. Que vous souhaitiez approfondir vos connaissances ou obtenir des ressources supplémentaires, Learning Way est votre compagnon idéal tout au long de l'année scolaire. Pour faciliter votre navigation, nous avons mis en place un système de symboles afin de vous informer de la disponibilité des matières :
+      <ul>
+        <li>Une croix (X) indique que la matière n’est pas encore disponible.</li>
+        <li>Un rond en chargement signifie que la matière est en cours de mise à jour.</li>
+        <li>Un tick (✔) indique que tout est à jour et accessible.</li>
+      </ul>
+      N’oubliez pas de soutenir Isaac Cheurfi en votant pour lui lors de l’élection des délégués de la classe de 1ère3. Votre voix compte pour un représentant engagé et à l’écoute de vos besoins.
+    </p>
+    <style>
+    .tabcontent1 {
+      display: none;
+      background-color: grey;
+      flex: 1; /* Prend l'espace restant */
+      display: flex;
+      flex-direction: column; /* Change layout to column */
+      color: black;
+    }
+
+  </style>
+    <div class="menu-diagram">
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Français">
+        <p>Français</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Mathématiques">
+        <p>Mathématiques</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Histoire-Géo">
+        <p>Histoire-Géo</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Italien">
+        <p>Italien</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Physique Chimie">
+        <p>Physique Chimie</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Enseignement Scientifique">
+        <p>Enseignement Scientifique</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="N.S.I.">
+        <p>N.S.I.</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Anglais">
+        <p>Anglais</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="E.M.C.">
+        <p>E.M.C.</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Chinois LVC">
+        <p>Chinois LVC</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+    </div>
+    <h1>Ce site est boosté par :</h1>
+    <p class="center"><img src="https://afinef.net/wp-content/uploads/2021/06/edulib-logo-couleur-1024x484.png" height="102" width="300">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLoundo172xI8C70M9zrVSD0ij-6gTUVas9Q6LIYEuy4wg2dnfsffSXKT0S5wmkK0fEeo&usqp=CAU" height="100" width="100">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Logo-pronote.png" height="102" width="300"></p>
+    <h1> Liens :</h1>
+    <p>https://www.edulib.fr/</p>
+    <p>https://www.stcharles-orleans.com/</p>
+    <p>https://www.index-education.com</p>
+  </div>
+  </div>
+
+  <div id="Manuels" class="tabcontent">
+    <div class="sidebar">
+      <p>
+        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113176/specimen/-1/')">Français</button>
+      </p>
+      <p>
+        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210112865/manuel/-1/')">Mathématiques</button>
+      </p>
+      <p>
+        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113183/specimen/-1/')">Anglais</button>
+      </p>
+      <p>
+        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113039/specimen/-1/')">Enseignement Scientifique</button>
+      </p>
+      <p>
+        <button class="btn-blue" onclick="openIframe('iframe1', 'https://lourossignol.wixsite.com/nsi-stcharles')">N.S.I.</button>
+      </p>
+    </div>
+    <div class="content">
+      <iframe id="iframe1" src=""></iframe>
+    </div>
+  </div>
+
+  <div id="Pronote" class="tabcontent">
+    <div class="content">
+      <iframe id="iframe" src="https://0450110a.index-education.net/pronote/eleve.html"></iframe>
+    </div>
+  </div>
+
+  <div id="Cours" class="tabcontent">
+    <div class="sidebar">
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1z9RfkrXOO9MJcqCUnirr1plHh_6X_rSVb1I8NJ_3wDM/preview')">Mathématiques</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">Français</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1kSawzTfNEn1OH-q9b_cO4dyz5yMIwd9mrPhX85vbgLs/preview')">Italien</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1lH7I_CyQcw2PlGL_deJdSX4lR1eJUAHSx17pmBIymCE/preview')">Histoire-Géo</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">Enseignement Scientifique</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1uNyBZY25APOLVQ-KEQE2SnD-XG-TP1TCHJlBaSP8OAg/preview')">Physique Chimie</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1FLny1-4E-AzBPyH5PDGIICFpW4PwhPVltmejW0VIeHs/preview')">N.S.I.</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">E.M.C.</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1gUe8XCUrvNNskqfLLFO1-IFo9anIXApDhOrsLwjXrnQ/preview')">Anglais</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">Chinois LVC</button>
+      </p>
+    </div>
+    <div class="content">
+      <iframe id="iframe2" src=""></iframe>
+    </div>
+  </div>
+</div>
+        <footer class="footer">
+            <p>&copy; 2024 Learning Way. Tous droits réservés.</p>
+        </footer>
+</div>
+<script>
+  function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+
+    // Cacher tous les contenus des onglets
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    // Retirer la classe active de tous les boutons
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Afficher le contenu de l'onglet sélectionné et ajouter la classe active
+    document.getElementById(cityName).style.display = "flex"; // Utilise flex pour la mise en page
+    evt.currentTarget.className += " active";
+  }
+
+  function openIframe(iframeId, page) {
+    document.getElementById(iframeId).src = page;
+    saveIframeState(iframeId, page); // Enregistre l'état de l'iframe
+  }
+
+  function saveIframeState(iframeId, page) {
+    localStorage.setItem('iframePage_' + iframeId, page);
+  }
+
+  function loadIframeState() {
+    // Charger l'état de chaque iframe individuellement
+    const iframes = ['iframe1', 'iframe2', 'iframe3']; // Ajoutez ici tous les IDs de vos iframes
+    iframes.forEach(iframeId => {
+      const page = localStorage.getItem('iframePage_' + iframeId);
+      if (page) {
+        document.getElementById(iframeId).src = page;
+      }
+    });
+  }
+</script>
+</body>
+</html>
