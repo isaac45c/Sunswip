@@ -59,11 +59,20 @@
       margin-bottom: 20px;
     }
 
-    .tabcontent .content {
+    .content {
       padding: 20px;
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .dark-mode .tab {
+      background-color: #222;
     }
 
     .explanation-section {
@@ -100,56 +109,11 @@
       margin-top: 10px;
     }
 
-    .sidebar {
-      width: 20%;
-      padding: 15px;
-      background-color: #f0f0f0;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
     .container {
       width: 80%;
       margin: 0 auto;
       max-width: 1200px;
       margin-top: 30px;
-    }
-
-    .menu-diagram {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .menu-item {
-      text-align: center;
-      width: 150px;
-      padding: 10px;
-      border-radius: 10px;
-      background-color: #f0f0f0;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .menu-item:hover {
-      background-color: #007bff;
-      transform: scale(1.05);
-      color: white;
-    }
-
-    .menu-item img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-
-    .menu-item p {
-      font-size: 18px;
-      margin: 10px 0;
     }
 
     .footer {
@@ -170,6 +134,42 @@
       text-decoration: underline;
     }
 
+    /* Style pour le bouton mode sombre / clair */
+    .toggle-dark-mode {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-dark-mode:hover {
+      background-color: #0056b3;
+    }
+
+    /* Bouton scroll to top */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none; /* Invisible au départ */
+    }
+
+    .scroll-to-top:hover {
+      background-color: #0056b3;
+    }
+
     @media (max-width: 768px) {
       .explanation-section {
         flex-direction: column;
@@ -183,7 +183,7 @@
     }
   </style>
 </head>
-<body onload="openCity(null, 'Menu')">
+<body onload="initializeSite()">
 
 <div class="container">
   <!-- Navigation Tabs -->
@@ -198,34 +198,24 @@
   <div id="Menu" class="tabcontent">
     <h2>Bienvenue sur Learning Way</h2>
 
+    <!-- Compteur de visiteurs -->
+    <div id="visitor-counter">
+      <h4>Nombre de visiteurs : <span id="visitorCount">0</span></h4>
+    </div>
+
     <!-- Section d'explication avec images -->
     <div class="explanation-section">
       <div class="explanation">
         <h3>Comment fonctionne le site ?</h3>
         <p>Learning Way vous offre un accès facile et rapide à vos manuels scolaires, cours en ligne et autres ressources éducatives. La navigation entre les différents onglets vous permet de retrouver toutes les matières essentielles à votre réussite.</p>
-        <p>Vous pouvez accéder à vos manuels, consulter vos cours et rester à jour avec l'aide de l'interface intuitive de Learning Way.</p>
       </div>
       <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?fit=crop&w=800&q=80" alt="Présentation du site">
     </div>
 
-    <!-- Exemple de diagramme de menu avec des images -->
-    <div class="menu-diagram">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1516834474-e21affb3eead?fit=crop&w=100&q=80" alt="Français">
-        <p>Français</p>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?fit=crop&w=100&q=80" alt="Mathématiques">
-        <p>Mathématiques</p>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1555685812-2b64330d2ef7?fit=crop&w=100&q=80" alt="Histoire-Géo">
-        <p>Histoire-Géo</p>
-      </div>
-      <!-- Ajoutez d'autres matières ici -->
-    </div>
+    <!-- Horloge temps réel -->
+    <h3>Heure actuelle : <span id="currentTime"></span></h3>
 
-    <!-- QR code et description -->
+    <!-- QR code -->
     <h3>Accédez à notre site via le QR code :</h3>
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://isaac45c.github.io/Learning-Way/" alt="QR code du site" style="width:150px;height:150px;">
   </div>
@@ -249,19 +239,55 @@
   </footer>
 </div>
 
+<!-- Bouton pour activer le mode sombre -->
+<button class="toggle-dark-mode" onclick="toggleDarkMode()">🌙</button>
+
+<!-- Bouton pour remonter en haut -->
+<button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
 <script>
-  function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
+  // Fonction pour basculer entre mode sombre et clair
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  // Fonction pour gérer le compteur de visiteurs (avec localStorage)
+  function updateVisitorCounter() {
+    let count = localStorage.getItem('visitorCount');
+    if (!count) {
+      count = 0;
     }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    count++;
+    localStorage.setItem('visitorCount', count);
+    document.getElementById('visitorCount').textContent = count;
+  }
+
+  // Fonction pour afficher l'heure en temps réel
+  function updateTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString();
+    document.getElementById('currentTime').textContent = timeString;
+  }
+
+  // Fonction pour remonter en haut de la page
+  function scrollToTop() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  // Afficher le bouton de scroll uniquement lorsque l'utilisateur descend
+  window.onscroll = function() {
+    const scrollTopButton = document.querySelector('.scroll-to-top');
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      scrollTopButton.style.display = 'block';
+    } else {
+      scrollTopButton.style.display = 'none';
     }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
+  };
+
+  // Initialiser les fonctionnalités lors du chargement de la page
+  function initializeSite() {
+    updateVisitorCounter();  // Met à jour le compteur de visiteurs
+    setInterval(updateTime, 1000);  // Met à jour l'heure chaque seconde
   }
 </script>
 
