@@ -150,6 +150,7 @@
       flex-wrap: wrap;
       justify-content: space-around;
       gap: 20px;
+      margin: 20px 0; /* Add space above and below the diagram */
     }
 
     .menu-item {
@@ -193,7 +194,6 @@
       color: white;
       text-align: center;
       padding: 15px;
-      position: ;
       width: 100%;
       bottom: 0;
     }
@@ -262,203 +262,81 @@
       <i class="fa fa-language"></i> Cours
     </button>
   </div>
-<div>
+  
   <!-- Tab Contents -->
   <div id="Menu" class="tabcontent">
-  <div class="tabcontent1">
-    <h2>Bienvenue sur Learning Way</h2>
-    <p>Grâce à Learning Way, vous bénéficiez d’un accès privilégié à une vaste sélection de manuels, de cours et de nombreuses fonctionnalités conçues pour garantir votre réussite scolaire. Que vous souhaitiez approfondir vos connaissances ou obtenir des ressources supplémentaires, Learning Way est votre compagnon idéal tout au long de l'année scolaire. Pour faciliter votre navigation, nous avons mis en place un système de symboles afin de vous informer de la disponibilité des matières :
-      <ul>
-        <li>Une croix (X) indique que la matière n’est pas encore disponible.</li>
-        <li>Un rond en chargement signifie que la matière est en cours de mise à jour.</li>
-        <li>Un tick (✔) indique que tout est à jour et accessible.</li>
-      </ul>
-      N’oubliez pas de soutenir Isaac Cheurfi en votant pour lui lors de l’élection des délégués de la classe de 1ère3. Votre voix compte pour un représentant engagé et à l’écoute de vos besoins.
-    </p>
-    <style>
-    .tabcontent1 {
-      display: none;
-      background-color: grey;
-      flex: 1; /* Prend l'espace restant */
-      display: flex;
-      flex-direction: column; /* Change layout to column */
-      color: black;
-    }
+    <div class="tabcontent1">
+      <h2>Bienvenue sur Learning Way</h2>
+      <p>
+        Grâce à Learning Way, vous bénéficiez d’un accès privilégié à une vaste sélection de manuels, de cours et de nombreuses fonctionnalités conçues pour garantir votre réussite scolaire. Que vous souhaitiez approfondir vos connaissances ou obtenir des ressources supplémentaires, Learning Way est votre compagnon idéal tout au long de l'année scolaire.
+      </p>
+      <p>
+        Pour faciliter votre navigation, nous avons mis en place un système de symboles afin de vous informer de la disponibilité des matières :
+        <span style="color: green;">🔵 = Disponible</span> 
+        <span style="color: orange;">🟠 = Non disponible</span> 
+        <span style="color: red;">🔴 = En révision</span>
+      </p>
+    </div>
 
-  </style>
     <div class="menu-diagram">
       <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Français">
-        <p>Français</p>
-        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
-      </div>
-      <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Mathématiques">
+        <img src="https://via.placeholder.com/100" alt="Mathématiques">
         <p>Mathématiques</p>
-        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
       </div>
       <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Histoire-Géo">
-        <p>Histoire-Géo</p>
-        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+        <img src="https://via.placeholder.com/100" alt="Physique">
+        <p>Physique</p>
       </div>
       <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Italien">
-        <p>Italien</p>
-        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+        <img src="https://via.placeholder.com/100" alt="Chimie">
+        <p>Chimie</p>
       </div>
       <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Physique Chimie">
-        <p>Physique Chimie</p>
-        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+        <img src="https://via.placeholder.com/100" alt="Biologie">
+        <p>Biologie</p>
       </div>
       <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Enseignement Scientifique">
-        <p>Enseignement Scientifique</p>
-        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
-      </div>
-      <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="N.S.I.">
-        <p>N.S.I.</p>
-        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
-      </div>
-      <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Anglais">
-        <p>Anglais</p>
-        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
-      </div>
-      <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="E.M.C.">
-        <p>E.M.C.</p>
-        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
-      </div>
-      <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Chinois LVC">
-        <p>Chinois LVC</p>
-        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+        <img src="https://via.placeholder.com/100" alt="Informatique">
+        <p>Informatique</p>
       </div>
     </div>
-    <h1>Ce site est boosté par :</h1>
-    <p class="center"><img src="https://afinef.net/wp-content/uploads/2021/06/edulib-logo-couleur-1024x484.png" height="102" width="300">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLoundo172xI8C70M9zrVSD0ij-6gTUVas9Q6LIYEuy4wg2dnfsffSXKT0S5wmkK0fEeo&usqp=CAU" height="100" width="100">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Logo-pronote.png" height="102" width="300"></p>
-    <h1> Liens :</h1>
-    <p>https://www.edulib.fr/</p>
-    <p>https://www.stcharles-orleans.com/</p>
-    <p>https://www.index-education.com</p>
-  </div>
   </div>
 
+  <!-- Other Tab Contents -->
   <div id="Manuels" class="tabcontent">
-    <div class="sidebar">
-      <p>
-        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113176/specimen/-1/')">Français</button>
-      </p>
-      <p>
-        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210112865/manuel/-1/')">Mathématiques</button>
-      </p>
-      <p>
-        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113183/specimen/-1/')">Anglais</button>
-      </p>
-      <p>
-        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113039/specimen/-1/')">Enseignement Scientifique</button>
-      </p>
-      <p>
-        <button class="btn-blue" onclick="openIframe('iframe1', 'https://lourossignol.wixsite.com/nsi-stcharles')">N.S.I.</button>
-      </p>
-    </div>
-    <div class="content">
-      <iframe id="iframe1" src=""></iframe>
-    </div>
+    <h3>Manuels</h3>
+    <iframe src="manuels.html" title="Manuels"></iframe>
   </div>
 
   <div id="Pronote" class="tabcontent">
-    <div class="content">
-      <iframe id="iframe" src="https://0450110a.index-education.net/pronote/eleve.html"></iframe>
-    </div>
+    <h3>Pronote</h3>
+    <iframe src="pronote.html" title="Pronote"></iframe>
   </div>
 
   <div id="Cours" class="tabcontent">
-    <div class="sidebar">
-      <p>
-        <button class="btn-green" onclick="openIframe('iframe2', 'https://drive.google.com/file/d/1sdfY38b1ogCWMgAOo9Qk-YobuA9UGmHj/view')">Mathématiques</button>
-      </p>
-      <p>
-        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">Français</button>
-      </p>
-      <p>
-        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1kSawzTfNEn1OH-q9b_cO4dyz5yMIwd9mrPhX85vbgLs/edit?usp=drive_link')">Italien</button>
-      </p>
-      <p>
-        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1lH7I_CyQcw2PlGL_deJdSX4lR1eJUAHSx17pmBIymCE/preview')">Histoire-Géo</button>
-      </p>
-      <p>
-        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">Enseignement Scientifique</button>
-      </p>
-      <p>
-        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1uNyBZY25APOLVQ-KEQE2SnD-XG-TP1TCHJlBaSP8OAg/preview')">Physique Chimie</button>
-      </p>
-      <p>
-        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1FLny1-4E-AzBPyH5PDGIICFpW4PwhPVltmejW0VIeHs/preview')">N.S.I.</button>
-      </p>
-      <p>
-        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">E.M.C.</button>
-      </p>
-      <p>
-        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1gUe8XCUrvNNskqfLLFO1-IFo9anIXApDhOrsLwjXrnQ/preview')">Anglais</button>
-      </p>
-      <p>
-        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">Chinois LVC</button>
-      </p>
-    </div>
-    <div class="content">
-      <iframe id="iframe2" src=""></iframe>
-    </div>
+    <h3>Cours</h3>
+    <iframe src="cours.html" title="Cours"></iframe>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2024 Learning Way. Tous droits réservés. | <a href="#">Mentions légales</a></p>
   </div>
 </div>
-        <footer class="footer">
-            <p>&copy; 2024 Learning Way. Tous droits réservés.</p>
-        </footer>
-</div>
+
 <script>
   function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
-
-    // Cacher tous les contenus des onglets
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
     }
-
-    // Retirer la classe active de tous les boutons
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-
-    // Afficher le contenu de l'onglet sélectionné et ajouter la classe active
-    document.getElementById(cityName).style.display = "flex"; // Utilise flex pour la mise en page
+    document.getElementById(cityName).style.display = "flex"; // Changed to flex for better layout
     evt.currentTarget.className += " active";
-  }
-
-  function openIframe(iframeId, page) {
-    document.getElementById(iframeId).src = page;
-    saveIframeState(iframeId, page); // Enregistre l'état de l'iframe
-  }
-
-  function saveIframeState(iframeId, page) {
-    localStorage.setItem('iframePage_' + iframeId, page);
-  }
-
-  function loadIframeState() {
-    // Charger l'état de chaque iframe individuellement
-    const iframes = ['iframe1', 'iframe2', 'iframe3']; // Ajoutez ici tous les IDs de vos iframes
-    iframes.forEach(iframeId => {
-      const page = localStorage.getItem('iframePage_' + iframeId);
-      if (page) {
-        document.getElementById(iframeId).src = page;
-      }
-    });
   }
 </script>
 </body>
