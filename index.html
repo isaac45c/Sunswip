@@ -304,23 +304,106 @@
   <div id="Menu" class="tabcontent">
     <div class="tabcontent1">
       <h2>Bienvenue sur Learning Way</h2>
-      <p>Grâce à Learning Way, vous bénéficiez d’un accès privilégié à une vaste sélection de manuels, de cours et de nombreuses fonctionnalités conçues pour garantir votre réussite scolaire.</p>
+    <p>Grâce à Learning Way, vous bénéficiez d’un accès privilégié à une vaste sélection de manuels, de cours et de nombreuses fonctionnalités conçues pour garantir votre réussite scolaire. Que vous souhaitiez approfondir vos connaissances ou obtenir des ressources supplémentaires, Learning Way est votre compagnon idéal tout au long de l'année scolaire. Pour faciliter votre navigation, nous avons mis en place un système de symboles afin de vous informer de la disponibilité des matières :
+      <ul>
+        <li>Une croix (X) indique que la matière n’est pas encore disponible.</li>
+        <li>Un rond en chargement signifie que la matière est en cours de mise à jour.</li>
+        <li>Un tick (✔) indique que tout est à jour et accessible.</li>
+      </ul>
+      N’oubliez pas de soutenir Isaac Cheurfi en votant pour lui lors de l’élection des délégués de la classe de 1ère3. Votre voix compte pour un représentant engagé et à l’écoute de vos besoins.
+    </p>
       <h3>Compteur de visiteurs : <span id="visitorCount">0</span></h3>
-      <div class="menu-diagram">
-        <div class="menu-item">
-          <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Français">
-          <p>Français</p>
-        </div>
-        <!-- Autres items du menu -->
+      <style>
+    .tabcontent1 {
+      display: none;
+      background-color: grey;
+      flex: 1; /* Prend l'espace restant */
+      display: flex;
+      flex-direction: column; /* Change layout to column */
+      color: black;
+    }
+
+  </style>
+    <div class="menu-diagram">
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Français">
+        <p>Français</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Mathématiques">
+        <p>Mathématiques</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Histoire-Géo">
+        <p>Histoire-Géo</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Italien">
+        <p>Italien</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Physique Chimie">
+        <p>Physique Chimie</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Enseignement Scientifique">
+        <p>Enseignement Scientifique</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="N.S.I.">
+        <p>N.S.I.</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Anglais">
+        <p>Anglais</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="E.M.C.">
+        <p>E.M.C.</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
+      </div>
+      <div class="menu-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Chinois LVC">
+        <p>Chinois LVC</p>
+        <p class="fa fa-circle"></p>Indisponible<p class="fa fa-circle"></p>
       </div>
     </div>
+    <h1>Ce site est boosté par :</h1>
+    <p class="center"><img src="https://afinef.net/wp-content/uploads/2021/06/edulib-logo-couleur-1024x484.png" height="102" width="300">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLoundo172xI8C70M9zrVSD0ij-6gTUVas9Q6LIYEuy4wg2dnfsffSXKT0S5wmkK0fEeo&usqp=CAU" height="100" width="100">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Logo-pronote.png" height="102" width="300"></p>
+    <h1> Liens :</h1>
+    <p>https://www.edulib.fr/</p>
+    <p>https://www.stcharles-orleans.com/</p>
+    <p>https://www.index-education.com</p>
+  </div>
   </div>
 
   <div id="Manuels" class="tabcontent">
     <div class="sidebar">
-      <p><button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113176/specimen/-1/')">Français</button></p>
-      <p><button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210112865/manuel/-1/')">Mathématiques</button></p>
-      <!-- Autres boutons -->
+      <p>
+        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113176/specimen/-1/')">Français</button>
+      </p>
+      <p>
+        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210112865/manuel/-1/')">Mathématiques</button>
+      </p>
+      <p>
+        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113183/specimen/-1/')">Anglais</button>
+      </p>
+      <p>
+        <button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113039/specimen/-1/')">Enseignement Scientifique</button>
+      </p>
+      <p>
+        <button class="btn-blue" onclick="openIframe('iframe1', 'https://lourossignol.wixsite.com/nsi-stcharles')">N.S.I.</button>
+      </p>
     </div>
     <div class="content">
       <iframe id="iframe1" src=""></iframe>
@@ -335,13 +418,42 @@
 
   <div id="Cours" class="tabcontent">
     <div class="sidebar">
-      <p><button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1z9RfkrXOO9MJcqCUnirr1plHh_6X_rSVb1I8NJ_3wDM/preview')">Mathématiques</button></p>
-      <!-- Autres boutons -->
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1z9RfkrXOO9MJcqCUnirr1plHh_6X_rSVb1I8NJ_3wDM/preview')">Mathématiques</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">Français</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1kSawzTfNEn1OH-q9b_cO4dyz5yMIwd9mrPhX85vbgLs/preview')">Italien</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1lH7I_CyQcw2PlGL_deJdSX4lR1eJUAHSx17pmBIymCE/preview')">Histoire-Géo</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">Enseignement Scientifique</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1uNyBZY25APOLVQ-KEQE2SnD-XG-TP1TCHJlBaSP8OAg/preview')">Physique Chimie</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1FLny1-4E-AzBPyH5PDGIICFpW4PwhPVltmejW0VIeHs/preview')">N.S.I.</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">E.M.C.</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1gUe8XCUrvNNskqfLLFO1-IFo9anIXApDhOrsLwjXrnQ/preview')">Anglais</button>
+      </p>
+      <p>
+        <button class="btn-green" onclick="openIframe('iframe2', 'https://www.lyceehenrimartin.fr/wp-content/uploads/bientot-disponible.png')">Chinois LVC</button>
+      </p>
     </div>
     <div class="content">
       <iframe id="iframe2" src=""></iframe>
     </div>
   </div>
+</div>
 
   <footer class="footer">
     <p>&copy; 2024 Learning Way. Tous droits réservés.</p>
