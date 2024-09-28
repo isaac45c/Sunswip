@@ -11,18 +11,14 @@
     html, body, h1, h2, h3, h4, h5, h6 {
       font-family: "Roboto", sans-serif;
     }
+
     body {
+      font-family: Arial, sans-serif;
       background-color: #f7f7f7;
       margin: 0;
-      padding-top: 70px; /* Compense la barre de navigation */
-      padding-bottom: 70px; /* Compense la barre de navigation */
+      padding-top: 70px;
+      padding-bottom: 70px;
       color: #333;
-      display: flex;
-    }
-
-    a {
-      color: blue;
-      text-decoration: none;
     }
 
     .tab {
@@ -35,7 +31,7 @@
       width: 100%;
       z-index: 1000;
       display: flex;
-      justify-content: center; /* Centre les onglets */
+      justify-content: center;
     }
 
     .tab button {
@@ -51,94 +47,80 @@
       align-items: center;
     }
 
-    .tab button i {
-      margin-right: 5px;
-    }
-
     .tab button:hover {
       background-color: #0056b3;
-    }
-
-    .tab button.active {
-      background-color: #003d99;
     }
 
     .tabcontent {
       display: none;
       padding: 20px;
-      background-color: grey;
-      border-radius: 1px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      margin-bottom: 5px;
-      flex: 1; /* Prend l'espace restant */
-      display: flex;
-      flex-direction: column; /* Change layout to column */
+      background-color: #fff;
+      border-radius: 5px;
+      margin-bottom: 20px;
     }
 
     .tabcontent .content {
-      flex: 1; /* Prend tout l'espace restant */
       padding: 20px;
-    }
-
-    .tabcontent .sidebar {
-      width: 200px; /* Largeur de la barre latérale */
-      padding: 10px;
-      background-color: #f0f0f0;
+      background-color: white;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-right: 20px; /* Espace entre la barre latérale et le contenu */
-    }
-
-    .tabcontent p button {
-      border: none;
-      padding: 12px 24px;
-      cursor: pointer;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      font-size: 14px;
-      border-radius: 8px;
-      margin: 5px 0; /* Marges verticales entre les boutons */
-      width: 100%; /* Remplit la largeur de la barre latérale */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .tabcontent p button:hover {
-      transform: scale(1.05);
+    .explanation-section {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 0;
     }
 
-    .btn-green {
-      background-color: #28a745;
-      color: white;
+    .explanation-section .explanation {
+      width: 48%;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .btn-green:hover {
-      background-color: #218838;
+    .explanation-section img {
+      width: 48%;
+      border-radius: 10px;
+      object-fit: cover;
     }
 
-    .btn-blue {
-      background-color: #17a2b8;
-      color: white;
+    .explanation-section p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
     }
 
-    .btn-blue:hover {
-      background-color: #117a8b;
+    /* Style des iframes et de la sidebar */
+    .content iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      margin-top: 10px;
     }
 
-    .btn-red {
-      background-color: #dc3545;
-      color: white;
+    .sidebar {
+      width: 20%;
+      padding: 15px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .btn-red:hover {
-      background-color: #c82333;
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      max-width: 1200px;
+      margin-top: 30px;
     }
 
-    /* Menu Diagram Design */
     .menu-diagram {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
       gap: 20px;
-      margin-top: 20px; /* Spacing above the diagram */
+      margin-top: 30px;
     }
 
     .menu-item {
@@ -170,19 +152,11 @@
       margin: 10px 0;
     }
 
-    .container {
-      width: 80%;
-      margin: 0 auto;
-      max-width: 1200px;
-      margin-top: 30px;
-    }
-
     .footer {
       background-color: #003d99;
       color: white;
       text-align: center;
       padding: 15px;
-      position: relative;
       width: 100%;
       bottom: 0;
     }
@@ -196,41 +170,17 @@
       text-decoration: underline;
     }
 
-    /* Responsive iframe */
-    iframe {
-      width: 100%;
-      height: 700px;
-      border: none;
-      margin-top: 10px;
-    }
-
-    /* Responsive Design */
     @media (max-width: 768px) {
-      .menu-diagram {
-        justify-content: center;
+      .explanation-section {
+        flex-direction: column;
+        align-items: center;
       }
 
-      .menu-item {
-        width: 120px;
-        margin: 10px;
-      }
-
-      .tab button {
-        font-size: 14px;
-        padding: 10px 15px;
-      }
-
-      .tabcontent .sidebar {
-        width: 100%; /* Prend toute la largeur sur mobile */
-        margin-right: 0; /* Pas d'espace entre la barre latérale et le contenu */
-      }
-
-      .tabcontent .content {
-        padding: 10px; /* Ajustement du remplissage sur mobile */
-        background-color: black;
+      .explanation-section .explanation, .explanation-section img {
+        width: 100%;
+        margin-bottom: 20px;
       }
     }
-
   </style>
 </head>
 <body onload="openCity(null, 'Menu')">
@@ -238,116 +188,82 @@
 <div class="container">
   <!-- Navigation Tabs -->
   <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'Menu')">
-      <i class="fa fa-home"></i> Menu
-    </button>
-    <button class="tablinks" onclick="openCity(event, 'Manuels')">
-      <i class="fa fa-book"></i> Manuels
-    </button>
-    <button class="tablinks" onclick="openCity(event, 'Pronote')">
-      <i class="fa fa-circle"></i> Pronote
-    </button>
-    <button class="tablinks" onclick="openCity(event, 'Cours')">
-      <i class="fa fa-language"></i> Cours
-    </button>
+    <button class="tablinks" onclick="openCity(event, 'Menu')"><i class="fa fa-home"></i> Menu</button>
+    <button class="tablinks" onclick="openCity(event, 'Manuels')"><i class="fa fa-book"></i> Manuels</button>
+    <button class="tablinks" onclick="openCity(event, 'Pronote')"><i class="fa fa-circle"></i> Pronote</button>
+    <button class="tablinks" onclick="openCity(event, 'Cours')"><i class="fa fa-language"></i> Cours</button>
   </div>
 
   <!-- Tab Contents -->
   <div id="Menu" class="tabcontent">
     <h2>Bienvenue sur Learning Way</h2>
-    <p>Grâce à Learning Way, vous bénéficiez d’un accès privilégié à une vaste sélection de manuels, de cours et de nombreuses fonctionnalités conçues pour garantir votre réussite scolaire. Que vous souhaitiez approfondir vos connaissances ou obtenir des ressources supplémentaires, Learning Way est votre compagnon idéal tout au long de l'année scolaire. 
-    <br><br>
-    Pour faciliter votre navigation, nous avons mis en place un système de symboles afin de vous informer de la disponibilité des matières :
-      <ul>
-        <li>Une croix (X) indique que la matière n’est pas encore disponible.</li>
-        <li>Un rond en chargement signifie que la matière est en cours de mise à jour.</li>
-        <li>Un tick (✔) indique que tout est à jour et accessible.</li>
-      </ul>
-      N’oubliez pas de soutenir Isaac Cheurfi en votant pour lui lors de l’élection des délégués de la classe de 1ère3. Votre voix compte pour un représentant engagé et à l’écoute de vos besoins.
-    </p>
 
+    <!-- Section d'explication avec images -->
+    <div class="explanation-section">
+      <div class="explanation">
+        <h3>Comment fonctionne le site ?</h3>
+        <p>Learning Way vous offre un accès facile et rapide à vos manuels scolaires, cours en ligne et autres ressources éducatives. La navigation entre les différents onglets vous permet de retrouver toutes les matières essentielles à votre réussite.</p>
+        <p>Vous pouvez accéder à vos manuels, consulter vos cours et rester à jour avec l'aide de l'interface intuitive de Learning Way.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?fit=crop&w=800&q=80" alt="Présentation du site">
+    </div>
+
+    <!-- Exemple de diagramme de menu avec des images -->
     <div class="menu-diagram">
       <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/user-icon-avatar-symbol-vector.jpg" alt="Icône de l'élève">
-        <p>Élève</p>
+        <img src="https://images.unsplash.com/photo-1516834474-e21affb3eead?fit=crop&w=100&q=80" alt="Français">
+        <p>Français</p>
       </div>
       <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/021/363/559/non_2x/students-at-classroom-vector.jpg" alt="Icône de la classe">
-        <p>Classe</p>
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?fit=crop&w=100&q=80" alt="Mathématiques">
+        <p>Mathématiques</p>
       </div>
       <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/021/579/223/non_2x/book-open-icon-vector.jpg" alt="Icône du manuel">
-        <p>Manuel</p>
+        <img src="https://images.unsplash.com/photo-1555685812-2b64330d2ef7?fit=crop&w=100&q=80" alt="Histoire-Géo">
+        <p>Histoire-Géo</p>
       </div>
-      <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/478/non_2x/online-course-icon-vector.jpg" alt="Icône du cours">
-        <p>Cours</p>
-      </div>
-      <div class="menu-item">
-        <img src="https://static.vecteezy.com/system/resources/previews/017/178/493/non_2x/calendar-icon-vector.jpg" alt="Icône du calendrier">
-        <p>Calendrier</p>
-      </div>
+      <!-- Ajoutez d'autres matières ici -->
     </div>
 
-    <iframe src="https://www.youtube.com/embed/Zz11yZy3-2o" allowfullscreen></iframe>
+    <!-- QR code et description -->
+    <h3>Accédez à notre site via le QR code :</h3>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://isaac45c.github.io/Learning-Way/" alt="QR code du site" style="width:150px;height:150px;">
   </div>
 
+  <!-- Autres onglets -->
   <div id="Manuels" class="tabcontent">
-    <h2>Manuels</h2>
-    <div class="sidebar">
-      <p><button class="btn-green">Accéder aux manuels</button></p>
-      <p><button class="btn-blue">Manuels de français</button></p>
-      <p><button class="btn-red">Manuels de mathématiques</button></p>
-    </div>
-    <div class="content">
-      <p>Ici, vous pouvez consulter tous les manuels disponibles pour chaque matière.</p>
-    </div>
+    <!-- Contenu pour les manuels -->
   </div>
 
   <div id="Pronote" class="tabcontent">
-    <h2>Pronote</h2>
-    <div class="sidebar">
-      <p><button class="btn-green">Se connecter à Pronote</button></p>
-    </div>
-    <div class="content">
-      <p>Accédez à votre espace Pronote pour consulter les notes et le cahier de texte.</p>
-    </div>
+    <!-- Contenu pour Pronote -->
   </div>
 
   <div id="Cours" class="tabcontent">
-    <h2>Cours</h2>
-    <div class="sidebar">
-      <p><button class="btn-green">Consulter les cours</button></p>
-    </div>
-    <div class="content">
-      <p>Ici, vous pouvez trouver tous les cours disponibles pour chaque matière.</p>
-    </div>
+    <!-- Contenu pour les cours -->
   </div>
-</div>
 
-<!-- Footer -->
-<div class="footer">
-  <p>&copy; 2024 Learning Way. Tous droits réservés.</p>
-  <p><a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Learning Way. Tous droits réservés.</p>
+  </footer>
 </div>
 
 <script>
   function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
-
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
     }
-
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
   }
 </script>
+
 </body>
 </html>
