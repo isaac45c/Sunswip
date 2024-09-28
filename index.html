@@ -88,18 +88,22 @@
     }
 
     .tabcontent .content {
-      flex: 1; /* Prend tout l'espace restant */
-      padding: 20px;
-    }
+  width: 80%; /* Ajuste la largeur ici, peut-être 80% ou 90% selon la taille que vous voulez */
+  margin: 0 auto; /* Centre le contenu */
+  padding: 20px; /* Garde du padding pour le contenu */
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute un peu d'ombre */
+}
 
     .tabcontent .sidebar {
-      width: 200px; /* Largeur de la barre latérale */
-      padding: 10px;
-      background-color: #f0f0f0;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-right: 20px; /* Espace entre la barre latérale et le contenu */
-    }
+  width: 20%; /* Réduit la barre latérale à 20% de l'espace disponible */
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 20px; /* Espace entre la barre latérale et le contenu */
+}
+
 
     .tabcontent p button {
       border: none;
@@ -209,14 +213,23 @@
 
     /* Responsive iframe */
     iframe {
-      width: 100%;
-      height: 700px;
-      border: none;
-      margin-top: 10px;
-    }
+  width: 100%; /* S'assure que l'iframe occupe toute la largeur du conteneur */
+  height: 700px; /* Hauteur de l'iframe */
+  border: none; /* Supprime la bordure de l'iframe */
+  margin-top: 10px;
+}
 
     /* Responsive Design */
     @media (max-width: 768px) {
+  .tabcontent .content {
+    width: 100%; /* Sur mobile, la largeur occupe tout l'espace */
+    padding: 10px;
+  }
+
+  .tabcontent .sidebar {
+    width: 100%; /* Barre latérale en pleine largeur sur mobile */
+    margin-right: 0;
+  }
       .menu-diagram {
         justify-content: center;
       }
@@ -229,16 +242,6 @@
       .tab button {
         font-size: 14px;
         padding: 10px 15px;
-      }
-
-      .tabcontent .sidebar {
-        width: 100%; /* Prend toute la largeur sur mobile */
-        margin-right: 0; /* Pas d'espace entre la barre latérale et le contenu */
-      }
-
-      .tabcontent .content {
-        padding: 0;
-        background-color: black;
       }
     }
 
@@ -312,6 +315,7 @@
       </ul>
       N’oubliez pas de soutenir Isaac Cheurfi en votant pour lui lors de l’élection des délégués de la classe de 1ère3. Votre voix compte pour un représentant engagé et à l’écoute de vos besoins.
     </p>
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?fit=crop&w=800&q=80" alt="Présentation du site">
       <h3>Compteur de visiteurs : <span id="visitorCount">0</span></h3>
       <style>
     .tabcontent1 {
@@ -384,8 +388,11 @@
     <p>https://www.edulib.fr/</p>
     <p>https://www.stcharles-orleans.com/</p>
     <p>https://www.index-education.com</p>
+      <h3>Accédez à notre site via le QR code :</h3>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://isaac45c.github.io/Learning-Way/" alt="QR code du site" style="width:150px;height:150px;">
+
   </div>
-  </div>
+</div>
 
   <div id="Manuels" class="tabcontent">
     <div class="sidebar">
@@ -453,8 +460,6 @@
       <iframe id="iframe2" src=""></iframe>
     </div>
   </div>
-</div>
-
   <footer class="footer">
     <p>&copy; 2024 Learning Way. Tous droits réservés.</p>
   </footer>
