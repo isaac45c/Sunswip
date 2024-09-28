@@ -11,14 +11,19 @@
     html, body, h1, h2, h3, h4, h5, h6 {
       font-family: "Roboto", sans-serif;
     }
-
     body {
       font-family: Arial, sans-serif;
       background-color: #f7f7f7;
       margin: 0;
-      padding-top: 70px;
-      padding-bottom: 70px;
+      padding-top: 70px; /* Compense la barre de navigation */
+      padding-bottom: 70px; /* Compense la barre de navigation */
       color: #333;
+      display: flex;
+    }
+
+    a {
+      color: blue;
+      text-decoration: none;
     }
 
     .tab {
@@ -31,7 +36,19 @@
       width: 100%;
       z-index: 1000;
       display: flex;
-      justify-content: center;
+      justify-content: center; /* Centre les onglets */
+    }
+    .tab2 {
+      overflow: hidden;
+      background-color: #007bff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center; /* Centre les onglets */
     }
 
     .tab button {
@@ -47,89 +64,92 @@
       align-items: center;
     }
 
+    .tab button i {
+      margin-right: 5px;
+    }
+
     .tab button:hover {
       background-color: #0056b3;
+    }
+
+    .tab button.active {
+      background-color: #003d99;
     }
 
     .tabcontent {
       display: none;
       padding: 20px;
-      background-color: #fff;
-      border-radius: 5px;
-      margin-bottom: 20px;
-    }
-
-    .content {
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
+      background-color: grey;
+      border-radius: 1px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .dark-mode {
-      background-color: #333;
-      color: #fff;
-    }
-
-    .dark-mode .tab {
-      background-color: #222;
-    }
-
-    .explanation-section {
+      margin-bottom: 5px;
+      flex: 1; /* Prend l'espace restant */
       display: flex;
-      justify-content: space-between;
-      margin: 40px 0;
     }
 
-    .explanation-section .explanation {
-      width: 48%;
+    .tabcontent .content {
+      flex: 1; /* Prend tout l'espace restant */
       padding: 20px;
-      background-color: #f9f9f9;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .explanation-section img {
-      width: 48%;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .explanation-section p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #555;
-    }
-
-    /* Style des iframes et de la sidebar */
-    .content iframe {
-      width: 100%;
-      height: 700px;
-      border: none;
-      margin-top: 10px;
-    }
-
-    .sidebar {
-      width: 20%;
-      padding: 15px;
+    .tabcontent .sidebar {
+      width: 200px; /* Largeur de la barre latérale */
+      padding: 10px;
       background-color: #f0f0f0;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-right: 20px; /* Espace entre la barre latérale et le contenu */
     }
 
-    .container {
-      width: 80%;
-      margin: 0 auto;
-      max-width: 1200px;
-      margin-top: 30px;
+    .tabcontent p button {
+      border: none;
+      padding: 12px 24px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      font-size: 14px;
+      border-radius: 8px;
+      margin: 5px 0; /* Marges verticales entre les boutons */
+      width: 100%; /* Remplit la largeur de la barre latérale */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
+    .tabcontent p button:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-green {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .btn-green:hover {
+      background-color: #218838;
+    }
+
+    .btn-blue {
+      background-color: #17a2b8;
+      color: white;
+    }
+
+    .btn-blue:hover {
+      background-color: #117a8b;
+    }
+
+    .btn-red {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .btn-red:hover {
+      background-color: #c82333;
+    }
+
+    /* Menu Diagram Design */
     .menu-diagram {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
       gap: 20px;
-      margin-top: 30px;
     }
 
     .menu-item {
@@ -161,11 +181,19 @@
       margin: 10px 0;
     }
 
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      max-width: 1200px;
+      margin-top: 30px;
+    }
+
     .footer {
       background-color: #003d99;
       color: white;
       text-align: center;
       padding: 15px;
+      position: relative;
       width: 100%;
       bottom: 0;
     }
@@ -179,7 +207,46 @@
       text-decoration: underline;
     }
 
-    /* Style pour le bouton mode sombre / clair */
+    /* Responsive iframe */
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .menu-diagram {
+        justify-content: center;
+      }
+
+      .menu-item {
+        width: 120px;
+        margin: 10px;
+      }
+
+      .tab button {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+
+      .tabcontent .sidebar {
+        width: 100%; /* Prend toute la largeur sur mobile */
+        margin-right: 0; /* Pas d'espace entre la barre latérale et le contenu */
+      }
+
+      .tabcontent .content {
+        padding: 0;
+        background-color: black;
+      }
+    }
+
+    /* Mode sombre et clair */
+    .dark-mode {
+      background-color: #333;
+      color: white;
+    }
     .toggle-dark-mode {
       position: fixed;
       bottom: 30px;
@@ -192,12 +259,11 @@
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
     .toggle-dark-mode:hover {
       background-color: #0056b3;
     }
 
-    /* Bouton scroll to top */
+    /* Bouton pour remonter */
     .scroll-to-top {
       position: fixed;
       bottom: 30px;
@@ -208,145 +274,137 @@
       padding: 10px 15px;
       border-radius: 50%;
       cursor: pointer;
-      display: none; /* Invisible au départ */
+      display: none;
     }
-
     .scroll-to-top:hover {
       background-color: #0056b3;
     }
-
-    @media (max-width: 768px) {
-      .explanation-section {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .explanation-section .explanation, .explanation-section img {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-    }
   </style>
 </head>
-<body onload="initializeSite()">
+<body onload="openCity(null, 'Menu'); initializeSite();">
 
 <div class="container">
   <!-- Navigation Tabs -->
   <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'Menu')"><i class="fa fa-home"></i> Menu</button>
-    <button class="tablinks" onclick="openCity(event, 'Manuels')"><i class="fa fa-book"></i> Manuels</button>
-    <button class="tablinks" onclick="openCity(event, 'Pronote')"><i class="fa fa-circle"></i> Pronote</button>
-    <button class="tablinks" onclick="openCity(event, 'Cours')"><i class="fa fa-language"></i> Cours</button>
+    <button class="tablinks" onclick="openCity(event, 'Menu')">
+      <i class="fa fa-home"></i> Menu
+    </button>
+    <button class="tablinks" onclick="openCity(event, 'Manuels')">
+      <i class="fa fa-book"></i> Manuels
+    </button>
+    <button class="tablinks" onclick="openCity(event, 'Pronote')">
+      <i class="fa fa-circle"></i> Pronote
+    </button>
+    <button class="tablinks" onclick="openCity(event, 'Cours')">
+      <i class="fa fa-language"></i> Cours
+    </button>
   </div>
 
   <!-- Tab Contents -->
   <div id="Menu" class="tabcontent">
-    <h2>Bienvenue sur Learning Way</h2>
-
-    <!-- Compteur de visiteurs -->
-    <div id="visitor-counter">
-      <h4>Nombre de visiteurs : <span id="visitorCount">0</span></h4>
-    </div>
-
-    <!-- Section d'explication avec images -->
-    <div class="explanation-section">
-      <div class="explanation">
-        <h3>Comment fonctionne le site ?</h3>
-        <p>Learning Way vous offre un accès facile et rapide à vos manuels scolaires, cours en ligne et autres ressources éducatives. La navigation entre les différents onglets vous permet de retrouver toutes les matières essentielles à votre réussite.</p>
-        <p>Vous pouvez accéder à vos manuels, consulter vos cours et rester à jour avec l'aide de l'interface intuitive de Learning Way.</p>
+    <div class="tabcontent1">
+      <h2>Bienvenue sur Learning Way</h2>
+      <p>Grâce à Learning Way, vous bénéficiez d’un accès privilégié à une vaste sélection de manuels, de cours et de nombreuses fonctionnalités conçues pour garantir votre réussite scolaire.</p>
+      <h3>Compteur de visiteurs : <span id="visitorCount">0</span></h3>
+      <div class="menu-diagram">
+        <div class="menu-item">
+          <img src="https://static.vecteezy.com/system/resources/previews/017/178/409/non_2x/red-cross-check-mark-on-transparent-background-free-png.png" alt="Français">
+          <p>Français</p>
+        </div>
+        <!-- Autres items du menu -->
       </div>
-      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?fit=crop&w=800&q=80" alt="Présentation du site">
     </div>
-
-    <!-- Horloge temps réel -->
-    <h3>Heure actuelle : <span id="currentTime"></span></h3>
-
-    <!-- QR code -->
-    <h3>Accédez à notre site via le QR code :</h3>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://isaac45c.github.io/Learning-Way/" alt="QR code du site" style="width:150px;height:150px;">
   </div>
 
-  <!-- Autres onglets -->
   <div id="Manuels" class="tabcontent">
+    <div class="sidebar">
+      <p><button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210113176/specimen/-1/')">Français</button></p>
+      <p><button class="btn-blue" onclick="openIframe('iframe1', 'https://www.libmanuels.fr/demo/9782210112865/manuel/-1/')">Mathématiques</button></p>
+      <!-- Autres boutons -->
+    </div>
     <div class="content">
-      <h3>Manuels disponibles</h3>
-      <p>Retrouvez ici tous les manuels pour les différentes matières.</p>
-      <!-- Ajoutez ici les liens vers les manuels -->
+      <iframe id="iframe1" src=""></iframe>
     </div>
   </div>
 
   <div id="Pronote" class="tabcontent">
     <div class="content">
-      <h3>Accès Pronote</h3>
-      <p>Accédez à votre espace Pronote pour suivre vos notes, absences et bien plus.</p>
-      <iframe src="https://0450110a.index-education.net/pronote/eleve.html"></iframe>
+      <iframe id="iframe" src="https://0450110a.index-education.net/pronote/eleve.html"></iframe>
     </div>
   </div>
 
   <div id="Cours" class="tabcontent">
+    <div class="sidebar">
+      <p><button class="btn-green" onclick="openIframe('iframe2', 'https://docs.google.com/document/d/1z9RfkrXOO9MJcqCUnirr1plHh_6X_rSVb1I8NJ_3wDM/preview')">Mathématiques</button></p>
+      <!-- Autres boutons -->
+    </div>
     <div class="content">
-      <h3>Accès aux Cours</h3>
-      <p>Suivez vos cours directement depuis la plateforme. Sélectionnez une matière pour commencer.</p>
-      <!-- Ajoutez les cours ici -->
+      <iframe id="iframe2" src=""></iframe>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2024 Learning Way. Tous droits réservés.</p>
   </footer>
 </div>
 
-<!-- Bouton pour activer le mode sombre -->
+<!-- Boutons flottants -->
 <button class="toggle-dark-mode" onclick="toggleDarkMode()">🌙</button>
-
-<!-- Bouton pour remonter en haut -->
 <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
 
 <script>
-  // Fonction pour basculer entre mode sombre et clair
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
+  function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "flex";
+    evt.currentTarget.className += " active";
   }
 
-  // Fonction pour gérer le compteur de visiteurs (avec localStorage)
+  function openIframe(iframeId, page) {
+    document.getElementById(iframeId).src = page;
+    localStorage.setItem('iframePage_' + iframeId, page);
+  }
+
+  function initializeSite() {
+    updateVisitorCounter();
+    setInterval(updateTime, 1000);
+  }
+
   function updateVisitorCounter() {
-    let count = localStorage.getItem('visitorCount');
-    if (!count) {
-      count = 0;
-    }
+    let count = localStorage.getItem('visitorCount') || 0;
     count++;
     localStorage.setItem('visitorCount', count);
     document.getElementById('visitorCount').textContent = count;
   }
 
-  // Fonction pour afficher l'heure en temps réel
   function updateTime() {
     const now = new Date();
-    const timeString = now.toLocaleTimeString();
-    document.getElementById('currentTime').textContent = timeString;
+    document.getElementById('currentTime').textContent = now.toLocaleTimeString();
   }
 
-  // Fonction pour remonter en haut de la page
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
   function scrollToTop() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Afficher le bouton de scroll uniquement lorsque l'utilisateur descend
   window.onscroll = function() {
-    const scrollTopButton = document.querySelector('.scroll-to-top');
+    const scrollButton = document.querySelector('.scroll-to-top');
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      scrollTopButton.style.display = 'block';
+      scrollButton.style.display = 'block';
     } else {
-      scrollTopButton.style.display = 'none';
+      scrollButton.style.display = 'none';
     }
   };
-
-  // Initialiser les fonctionnalités lors du chargement de la page
-  function initializeSite() {
-    updateVisitorCounter();  // Met à jour le compteur de visiteurs
-    setInterval(updateTime, 1000);  // Met à jour l'heure chaque seconde
-  }
 </script>
 
 </body>
