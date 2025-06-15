@@ -9,458 +9,306 @@
     :root {
       --red: #ff0055;
       --blue: #0055ff;
-      --neon-shadow-red: 0 0 10px #ff0055, 0 0 20px #ff0055;
-      --neon-shadow-blue: 0 0 10px #0055ff, 0 0 20px #0055ff;
+      --purple: #7b00ff;
       --bg-dark: #0a001a;
       --text-light: #eee;
+      --radius: 16px;
+      --shadow-red: 0 0 20px #ff0055aa;
+      --shadow-blue: 0 0 20px #0055ffaa;
     }
+
     * {
       box-sizing: border-box;
-    }
-    body {
       margin: 0;
-      background: var(--bg-dark);
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(180deg, #0a001a, #140033);
       color: var(--text-light);
       font-family: 'Rajdhani', sans-serif;
-      line-height: 1.5;
     }
+
     header {
       background: #050020;
-      padding: 1rem 2rem;
+      padding: 1.2rem 2rem;
       text-align: center;
-      box-shadow: 0 0 30px var(--blue);
-      user-select: none;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: var(--shadow-blue);
     }
+
     header h1 {
       font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
       font-size: 2.5rem;
-      margin: 0;
       color: var(--blue);
-      text-shadow: var(--neon-shadow-blue);
+      text-shadow: var(--shadow-blue);
     }
+
     nav {
-      margin-top: 8px;
+      margin-top: 0.5rem;
     }
+
     nav a {
       color: var(--text-light);
       margin: 0 1rem;
-      font-weight: 700;
       text-decoration: none;
-      font-family: 'Rajdhani', sans-serif;
-      transition: color 0.3s ease;
+      font-weight: bold;
+      transition: 0.3s;
     }
-    nav a:hover,
-    nav a.active {
+
+    nav a:hover, nav a.active {
       color: var(--red);
-      text-shadow: var(--neon-shadow-red);
+      text-shadow: var(--shadow-red);
     }
+
     main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
     }
+
     section {
       margin-bottom: 4rem;
+      padding: 2rem;
+      border-radius: var(--radius);
+      background-color: rgba(255, 255, 255, 0.02);
+      box-shadow: 0 0 20px #0004;
     }
 
-    /* === Hero === */
     #hero {
       text-align: center;
-      user-select: text;
+      background: radial-gradient(circle at center, #1a002f, #0a001a);
+      padding-top: 4rem;
     }
+
     #hero h2 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
-      margin-bottom: 0.25rem;
+      font-size: 3.2rem;
       color: var(--red);
-      text-shadow: var(--neon-shadow-red);
+      text-shadow: var(--shadow-red);
+      margin-bottom: 1rem;
     }
+
     #hero p {
-      font-weight: 500;
-      font-size: 1.3rem;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
       color: #ccc;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
     }
+
     #hero button {
+      margin-top: 1rem;
       background: linear-gradient(90deg, var(--red), var(--blue));
       border: none;
-      padding: 12px 30px;
-      border-radius: 30px;
+      padding: 14px 36px;
+      border-radius: 40px;
       font-weight: 700;
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      color: #fff;
       cursor: pointer;
-      color: #111;
-      box-shadow: 0 0 30px var(--red);
-      transition: background 0.4s ease;
-      user-select: none;
+      box-shadow: var(--shadow-red);
+      transition: all 0.3s;
     }
+
     #hero button:hover {
       background: linear-gradient(90deg, var(--blue), var(--red));
-      color: #fff;
-      box-shadow: 0 0 45px var(--blue);
+      color: white;
+      box-shadow: var(--shadow-blue);
     }
 
-    /* === Music Section === */
-    #music h2 {
+    h2.section-title {
       font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      color: var(--blue);
-      text-shadow: var(--neon-shadow-blue);
       text-align: center;
-      user-select: text;
-    }
-    .track-list {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      padding-bottom: 0.5rem;
-      scroll-padding-left: 1rem;
-    }
-    .track-card {
-      background: #110033;
-      border: 1px solid var(--blue);
-      border-radius: 12px;
-      padding: 1rem;
-      min-width: 260px;
-      flex-shrink: 0;
-      box-shadow: 0 0 20px var(--blue);
-      user-select: text;
-    }
-    .track-card h3 {
-      font-family: 'Orbitron', sans-serif;
-      margin-top: 0;
-      margin-bottom: 0.4rem;
-      color: var(--red);
-      text-shadow: var(--neon-shadow-red);
-    }
-    .track-card p {
-      font-size: 0.95rem;
-      margin: 0 0 1rem 0;
-      color: #bbb;
-    }
-    audio {
-      width: 100%;
-      outline: none;
-      border-radius: 6px;
-      box-shadow: 0 0 15px #222 inset;
-      background: #000;
-      cursor: pointer;
-    }
-    .scroll-hint {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 12px;
-      text-align: center;
-      user-select: none;
-    }
-    #music a.bandlab-link {
-      display: block;
-      margin-top: 12px;
-      text-align: center;
-      color: var(--red);
-      font-weight: 600;
-      text-decoration: underline;
-      user-select: text;
-    }
-
-    /* === About Section === */
-    #about {
-      background: linear-gradient(135deg, #0d001a, #000010);
-      border-top: 2px solid var(--blue);
-      border-bottom: 2px solid var(--red);
-      padding: 60px 30px 80px;
-      color: var(--text-light);
-      max-width: 900px;
-      text-align: center;
-      user-select: text;
-      position: relative;
-      box-shadow: inset 0 0 40px #110022cc;
-      border-radius: 12px;
-      margin: 0 auto;
-    }
-    #about h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
-      font-size: 2.8rem;
-      margin-bottom: 32px;
-      text-shadow: var(--neon-shadow-red);
-    }
-    #about p {
-      font-weight: 500;
-      font-size: 1.15rem;
-      line-height: 1.6;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 2.5rem;
       margin-bottom: 1.5rem;
+      color: var(--blue);
+      text-shadow: var(--shadow-blue);
     }
-    /* Timeline style */
-    #about .timeline {
-      margin-top: 50px;
-      border-left: 3px solid var(--red);
-      padding-left: 25px;
-      text-align: left;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #aaa;
-      font-style: italic;
-      font-size: 0.95rem;
-      user-select: text;
+
+    .soundcloud-embed {
+      display: flex;
+      justify-content: center;
+      margin: 1rem auto;
+    }
+
+    iframe {
+      border: none;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-blue);
+    }
+
+    .timeline {
       list-style: none;
+      padding-left: 1rem;
+      max-width: 700px;
+      margin: 2rem auto 0;
+      border-left: 3px solid var(--red);
     }
-    #about .timeline li {
-      margin-bottom: 20px;
+
+    .timeline li {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
       position: relative;
-      padding-left: 25px;
+      color: #aaa;
     }
-    #about .timeline li::before {
-      content: "→";
+
+    .timeline li::before {
+      content: "⮞";
       position: absolute;
-      left: 0;
-      top: 2px;
+      left: -1.2rem;
       color: var(--red);
-      font-weight: 700;
     }
-    /* Social links */
+
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
+      gap: 2rem;
+      margin-top: 2rem;
     }
+
     .social-links a {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: var(--text-light);
-      text-decoration: none;
-      filter: drop-shadow(0 0 3px #111);
-      transition: color 0.3s ease;
-      user-select: none;
+      transition: color 0.3s;
     }
+
     .social-links a:hover {
       color: var(--red);
-      filter: drop-shadow(0 0 10px var(--red));
+      text-shadow: var(--shadow-red);
     }
 
-    /* === Contact Section === */
-    #contact {
-      background: #05050a;
-      padding: 60px 30px 80px;
-      max-width: 700px;
-      text-align: center;
-      border-radius: 12px;
-      box-shadow: 0 0 30px var(--blue);
-      user-select: text;
-      margin: 0 auto;
-    }
-    #contact h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
-      font-size: 2.8rem;
-      margin-bottom: 28px;
-      text-shadow: var(--neon-shadow-blue);
-    }
-    #contact p {
-      font-weight: 400;
-      font-size: 1rem;
-      margin-bottom: 28px;
-      color: #ccc;
-    }
     #contact a.email-link {
-      font-weight: 700;
-      font-size: 1.2rem;
       color: var(--red);
       text-decoration: none;
-      user-select: text;
-      transition: color 0.3s ease;
+      font-weight: bold;
+      display: block;
+      margin: 1rem 0;
     }
+
     #contact a.email-link:hover {
       color: var(--blue);
-      text-shadow: var(--neon-shadow-blue);
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 450px;
-      margin: 0 auto;
-    }
-    form label {
-      font-weight: 600;
-      text-align: left;
-    }
-    form input, form textarea {
-      padding: 14px 20px;
-      border-radius: 10px;
-      border: none;
-      background: #111;
-      color: var(--text-light);
-      font-size: 1rem;
-      box-shadow: inset 0 0 15px #111;
-      resize: vertical;
-      transition: box-shadow 0.3s ease;
-      font-family: 'Rajdhani', sans-serif;
-    }
-    form input:focus, form textarea:focus {
-      outline: none;
-      box-shadow: 0 0 25px var(--red);
-      background: #222;
-    }
-    form textarea {
-      min-height: 120px;
-    }
-    form button {
-      background: linear-gradient(90deg, var(--red), var(--blue));
-      border: none;
-      padding: 15px 0;
-      border-radius: 30px;
-      color: #111;
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 0 30px var(--red);
-      transition: background 0.4s ease;
-      user-select: none;
-      font-family: 'Rajdhani', sans-serif;
-    }
-    form button:hover {
-      background: linear-gradient(90deg, var(--blue), var(--red));
-      color: #fff;
-      box-shadow: 0 0 45px var(--blue);
-    }
-    #formResponse {
-      margin-top: 12px;
-      font-weight: 600;
-      min-height: 1.2em;
-      color: #88ff88;
+      text-shadow: var(--shadow-blue);
     }
 
-    /* === Footer === */
     footer {
       text-align: center;
-      padding: 20px 10px;
-      font-family: 'Rajdhani', sans-serif;
+      padding: 2rem 1rem;
       font-size: 0.85rem;
-      letter-spacing: 1.5px;
-      color: #444;
-      user-select: none;
-      margin-top: 60px;
+      color: #777;
+      background: #0a001a;
     }
 
-    /* === Responsive === */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-blue);
+      display: none;
+      z-index: 100;
+    }
+
     @media (max-width: 768px) {
       #hero h2 {
-        font-size: clamp(2.5rem, 9vw, 4rem);
+        font-size: 2.2rem;
       }
       nav {
-        gap: 20px;
-      }
-      section {
-        padding: 40px 15px 60px;
-      }
-      .track-list {
-        max-width: 100%;
-      }
-      .track-card {
-        min-width: 220px;
-      }
-      form {
-        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
-  <header role="banner">
+
+  <header>
     <h1>Sunswip</h1>
-    <nav role="navigation" aria-label="Navigation principale">
-      <a href="#hero" class="active" data-section="hero">Home</a>
-      <a href="#music" data-section="music">Music</a>
-      <a href="#about" data-section="about">About</a>
-      <a href="#contact" data-section="contact">Contact</a>
+    <nav>
+      <a href="#hero" class="active">Accueil</a>
+      <a href="#music">Musique</a>
+      <a href="#about">À propos</a>
+      <a href="#shows">Concerts</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main role="main">
-    <!-- Hero -->
-    <section id="hero" tabindex="0" aria-label="Accueil - Présentation Sunswip">
+  <main>
+    <section id="hero">
       <h2>SUNSWIP</h2>
-      <p>Electro Pop | EDM | Techno producer from near Paris, France</p>
-      <button class="btn-primary" onclick="document.querySelector('#music').scrollIntoView({behavior:'smooth'})" aria-label="Découvrir ma musique">Discover Music</button>
+      <p>Electro Pop | EDM | Techno producer from Paris 🇫🇷</p>
+      <button onclick="document.getElementById('music').scrollIntoView({behavior:'smooth'})">🎧 Découvrir la musique</button>
     </section>
 
-    <!-- Music -->
-    <section id="music" tabindex="0" aria-label="Musique - titres et extraits">
-      <h2>Music</h2>
-      <div class="track-list" aria-live="polite" aria-relevant="additions">
-        <article class="track-card" tabindex="0" role="region" aria-label="Titre: Midnight Glow">
-          <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=6c63a712-5b44-f011-a5f1-6045bd2f3017" allowfullscreen></iframe>
-        </article>
-        <article class="track-card" tabindex="0" role="region" aria-label="Titre: Neon Dreams">
-          <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=5d36fe47-2645-f011-a5f1-6045bd2f3017" allowfullscreen></iframe>
-        </article>
-        <article class="track-card" tabindex="0" role="region" aria-label="Titre: Techno Pulse">
-         <iframe width="560" height="202" src="https://www.bandlab.com/embed/?id=120cff70-f445-f011-8f7d-6045bd381261" allowfullscreen></iframe>
-        </article>
+    <section id="music">
+      <h2 class="section-title">🎶 Ma Musique</h2>
+      <div class="soundcloud-embed">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/sunswip&color=%23ff0055&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+        </iframe>
       </div>
-      <p class="scroll-hint">Scroll horizontally to discover more tracks →</p>
-      <a href="https://www.bandlab.com/sunswip" target="_blank" rel="noopener noreferrer" class="bandlab-link">Visit my BandLab profile</a>
+      <p style="text-align:center;"><a href="https://soundcloud.com/sunswip" target="_blank" style="color:var(--red);text-decoration:underline;">➡️ Voir mon profil SoundCloud</a></p>
     </section>
 
-    <!-- About -->
-    <section id="about" tabindex="0" aria-label="À propos de Sunswip">
-      <h2>About Sunswip</h2>
-      <p>Sunswip is an independent artist and producer from near Paris, France, creating a unique blend of electro pop, EDM, and techno music. Inspired by artists like <strong>Avicii, Alan Walker, and David Guetta</strong>, Sunswip aims to create music that speaks to a generation raised on dancefloors and digital culture alike.</p>
-      <p>I compose and produce all my music myself, with a vision to connect deeply with listeners both live and online.</p>
-      <ul class="timeline" aria-label="Timeline de l'artiste">
-        <li>Started music production at age 14</li>
-        <li>Released multiple tracks and demos on BandLab</li>
-        <li>Built an engaged online community on social platforms</li>
-        <li>Currently seeking collaboration and label opportunities</li>
+    <section id="about">
+      <h2 class="section-title">👤 À propos</h2>
+      <p style="text-align:center;">Sunswip est un producteur indépendant d’électro pop, EDM et techno près de Paris.</p>
+      <p style="text-align:center;">Inspiré par Avicii, Alan Walker, David Guetta. Énergie & émotions à chaque son !</p>
+      <ul class="timeline">
+        <li>🎛️ A commencé la production à 14 ans</li>
+        <li>🚀 Sorties de morceaux & démos</li>
+        <li>🌍 Communauté en ligne engagée</li>
+        <li>🤝 Ouvert aux collaborations & labels</li>
       </ul>
-      <div class="social-links" aria-label="Liens réseaux sociaux">
-        <a href="https://linktr.ee/Sunswip" target="_blank" rel="noopener noreferrer" aria-label="Linktree">🌐</a>
-        <a href="https://twitter.com/Sunswip_off" target="_blank" rel="noopener noreferrer" aria-label="Twitter">🐦</a>
-        <a href="https://www.instagram.com/sunswip_off/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
+      <div class="social-links">
+        <a href="https://linktr.ee/Sunswip" target="_blank">🌐</a>
+        <a href="https://twitter.com/Sunswip_off" target="_blank">🐦</a>
+        <a href="https://www.instagram.com/sunswip_off/" target="_blank">📸</a>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" tabindex="0" aria-label="Contact Sunswip">
-      <h2>Contact</h2>
-      <p>Want to collaborate or just say hi? Reach out via email!</p>
-      <a href="mailto:cheurfi.isaac@gmail.com" class="email-link" aria-label="Email Sunswip">cheurfi.isaac@gmail.com</a>
+    <section id="shows">
+      <h2 class="section-title">📅 Concerts & Lives</h2>
+      <p style="text-align:center;">Aucun concert prévu actuellement.<br>Reste connecté pour les prochains événements !</p>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">📩 Contact</h2>
+      <p style="text-align:center;">Tu veux collaborer, proposer un booking ou juste dire bonjour ?</p>
+      <a href="mailto:cheurfi.isaac@gmail.com" class="email-link">cheurfi.isaac@gmail.com</a>
     </section>
   </main>
 
+  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
   <footer>
-    <p>© 2025 Sunswip. All rights reserved.</p>
+    <p>© 2025 Sunswip. Tous droits réservés.</p>
   </footer>
 
   <script>
-    // Smooth scroll for nav links
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', e => {
+    const links = document.querySelectorAll("nav a");
+    const topButton = document.getElementById("backToTop");
+
+    links.forEach(link => {
+      link.addEventListener("click", e => {
         e.preventDefault();
-        document.querySelector(link.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
-        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-        link.classList.add('active');
+        document.querySelector(link.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+        links.forEach(a => a.classList.remove("active"));
+        link.classList.add("active");
       });
     });
 
-    // Contact form submit handler (mock)
-    const form = document.getElementById('contactForm');
-    const formResponse = document.getElementById('formResponse');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      formResponse.textContent = "Thank you for your message, I'll get back to you soon!";
-      form.reset();
+    window.addEventListener("scroll", () => {
+      topButton.style.display = window.scrollY > 300 ? "block" : "none";
     });
   </script>
 </body>
