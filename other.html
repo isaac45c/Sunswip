@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Talk-Over Recorder</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    button, select { margin: 10px 0; padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Live Talk-Over Recorder</h1>
+    
+    <label for="inputSelect">Select Input Device:</label>
+    <select id="inputSelect"></select>
+    
+    <br>
+    <button id="startBtn">Start Recording</button>
+    <button id="stopBtn" disabled>Stop Recording</button>
+    <br>
+    <audio id="playback" controls></audio>
+  </div>
+
+  <script>
+    let mediaRecorder;
+    let audioChunks = [];
+    let audioContext;
+    let source;
+    let stream;
+
+    const inputSelect = document.getElementById('inputSelect');
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const playback = document.getElementById('playback');
+
+    // Populate device list
+    async function getInputDevices() {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const audioInputs = devices.filter(device => device.kind === 'audioinput');
+      inputSelect.innerHTML = audioInputs.map(device => 
+        `<option value="${device.deviceId}">${device.label || 'Input Device'}</option>`
+      ).join('');
+    }
+
+    // Request permission first to get labels
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(() => getInputDevices());
+
+    startBtn.onclick = async () => {
+      const selectedDeviceId = inputSelect.value;
+
+      stream = await navigator.mediaDevices.getUserMedia({
+        audio: { deviceId: selectedDeviceId ? { exact: selectedDeviceId } : undefined }
+      });
+
+      // Live monitoring
+      audioContext = new AudioContext();
+      source = audioContext.createMediaStreamSource(stream);
+      source.connect(audioContext.destination);
+
+      // Start recording
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+      mediaRecorder.onstop = () => {
+        const blob = new Blob(audioChunks, { type: 'audio/webm' });
+        const url = URL.createObjectURL(blob);
+        playback.src = url;
+        audioChunks = [];
+      };
+
+      mediaRecorder.start();
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+    };
+
+    stopBtn.onclick = () => {
+      mediaRecorder.stop();
+      stream.getTracks().forEach(track => track.stop());
+      if (audioContext) audioContext.close();
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+    };
+  </script>
+</body>
+</html>
