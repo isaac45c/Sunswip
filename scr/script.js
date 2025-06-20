@@ -28,7 +28,7 @@ const headerHTML = `
 
 const footerHTML = `
   <footer>
-    &copy; 2025 Breach Place. All rights reserved.
+    &copy; 2025 Sunswip | Isaac Cheurfi. All rights reserved.
   </footer>
 `;
 
@@ -71,7 +71,7 @@ function initCountdown() {
     const diff = targetDate - now;
 
     if (diff <= 0) {
-      countdownEl.textContent = "New single out now!";
+      countdownEl.textContent = "";  ///New single out now!
       return;
     }
 
