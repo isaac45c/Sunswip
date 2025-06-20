@@ -11,10 +11,6 @@ const headerHTML = `
     <nav>
       <ul>
         <li><a href="music.html">Music</a></li>
-        <li><a href="show.html">Show</a></li>
-        <li><a href="404.html">FanClub</a></li>
-        <li><a href="wiki.html">Wiki</a></li>
-        <li><a href="404.html">Store</a></li>
         <li><a href="other.html">Other</a></li>
       </ul>
     </nav>
