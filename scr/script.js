@@ -67,7 +67,7 @@ function initCountdown() {
     const diff = targetDate - now;
 
     if (diff <= 0) {
-      countdownEl.textContent = "";  ///New song out now!
+      countdownEl.textContent = "'Looking For' is OUT NOW !";  ///New song out now!
       return;
     }
 
