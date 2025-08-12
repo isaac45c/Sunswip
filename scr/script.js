@@ -1,5 +1,5 @@
 // === CONFIGURATION ===
-const countdownTarget = "2025-04-23T00:00:00";
+const countdownTarget = "2025-08-12T00:00:00";
 
 // === SHARED HTML ===
 const headerHTML = `
@@ -67,7 +67,7 @@ function initCountdown() {
     const diff = targetDate - now;
 
     if (diff <= 0) {
-      countdownEl.textContent = "";  ///New single out now!
+      countdownEl.textContent = "";  ///New song out now!
       return;
     }
 
